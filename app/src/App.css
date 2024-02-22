@@ -1,0 +1,236 @@
+:root {
+    --HeavyPurple: #a28089;
+    --PurplePain: #8458B3;
+    --MediumPurple: #d0bdf4;
+    --FreezePurple: #e5eaf5;
+    --IceCold: #a0d2eb;
+}    
+*{
+    padding: 0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+     background-color: var(--HeavyPurple);
+     overflow: hidden;
+}
+.home-container{
+    width: 400px;
+    height: 400px;
+    background-color: var(--MediumPurple);
+    border-radius: 20px;
+    border: 10px solid var(--PurplePain);
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% ,-50%);
+}
+.title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color:#fff;
+    margin:40px;
+}
+.player-name-input{
+    display: block;
+    margin: 50px auto;
+    padding: 10px;
+    width: 300px;
+    background-color: var(--FreezePurple);
+    color: var(--IceCold);
+}
+.find-match{
+    display: block;
+    margin: 40px auto;
+    padding: 10px;
+    width: 200px;
+    font-weight: bolder;
+    color: var(--FreezePurple);
+    cursor: pointer;
+    background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+    }
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+    .board{
+        width: 400px;
+        height: 400px;
+        background-color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+    } 
+    .square{
+        width: 50px;
+        height: 50px;
+        border: 1px solid var(--FreezePurple);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .black{
+        background-color: black;        
+    }
+    .piece-circle{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+    }
+    .white-piece{
+        background-color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    .black-piece{
+        background-color: rgb(95, 92, 92);
+    }
+    .black-piece::after{
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid white;
+        top:50%;
+        left:50%;
+        transform: translate(-50% , -50%);
+    }
+    .black-piece::before{
+        content: '';
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid white;
+        top:50%;
+        left:50%;
+        transform: translate(-50% , -50%);
+    }
+    .white-piece::after{
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid black;
+        top:50%;
+        left:50%;
+        transform: translate(-50% , -50%);
+    }
+    .white-piece::before{
+        content: '';
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: 1px solid black;
+        top:50%;
+        left:50%;
+        transform: translate(-50% , -50%);
+    }
+    .selected{
+        background-color: green !important;
+    }
+    .chat-container{
+        width: 300px;
+        height: 400px;
+        background-color: var(--IceCold);
+
+    }
+    .game-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width: 800px;
+    }
+    .screen{
+        width: 240px;
+        height: 250px;
+        background-color: var(--FreezePurple);
+        margin:30px auto 10px auto;
+        overflow-y: scroll;
+    }
+    .chat-input{
+        width: 200px;
+        padding: 5px;
+        display: block;
+        margin: auto;
+    }
+    .sendchat{
+        display: block;
+        margin: 5px auto;
+        width: 100px;
+        background-color: var(--FreezePurple);
+        cursor: pointer;
+        font-weight: bolder;
+        color: var(--MediumPurple);
+    }
+    .chat{
+        position: relative;
+        width: 200px;
+        margin: auto;
+        padding: 10px;
+        text-align: center;
+        overflow-wrap: break-word; 
+    }
+    .chat-opponent{
+        color: var(--PurplePain);
+    }
+    .chat-main{
+        color:var(--HeavyPurple);
+    }
+    @media screen and (max-width: 900px) {
+        .game-container {
+            flex-direction: column;
+        }
+        .chat-container{
+            margin-top: 50px;
+        }
+      }
+.king-symbol{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.king-png{
+    width: 20px;
+    height: 20px;
+}
+.black-piece  .king-png{
+    color: #fff !important;
+}
+.leavematch{
+    width: 100px;
+    padding: 5px;
+    display: block;
+    margin: auto;
+    background-color: rgb(242, 190, 190);
+    color: var(--FreezePurple);
+    cursor: pointer;
+}
